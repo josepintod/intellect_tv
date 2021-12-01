@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:intellect_tv/ui/pages/login.dart';
-import 'package:intellect_tv/ui/pages/registro.dart';
+import 'pages/login.dart';
+import 'pages/registro.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Red Social',
+      title: 'Red Social Intellect TV',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
+      
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const LoginWidget(
-              title: 'Login',
+        '/': (context) => const LoginPage(
+              title: 'LogIn',
             ),
-        '/registro': (context) => const RegistroWidget(
+        '/register': (context) => const RegisterPage(
               title: 'Registro',
             ),
+        /*'/home': (context) => const HomePage(
+              title: 'Pagina de Post',
+            ),*/
       },
     );
   }
