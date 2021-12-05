@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 1),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(context, '/content');
                   },
                 ),
               ),

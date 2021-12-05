@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'pages/content.dart';
+import 'pages/inicio.dart';
 import 'pages/login.dart';
 import 'pages/registro.dart';
 
@@ -13,18 +15,20 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      
       initialRoute: '/',
       routes: {
-        '/': (context) => const LoginPage(
+        '/': (context) => const InicioPage(
+              title: 'Bienvenido a Intellect TV',
+            ),
+        '/login': (context) => const LoginPage(
               title: 'LogIn',
             ),
         '/register': (context) => const RegisterPage(
               title: 'Registro',
             ),
-        /*'/home': (context) => const HomePage(
-              title: 'Pagina de Post',
-            ),*/
+        '/content': (context) => const ContentPage(
+              title: 'Contenido',
+            ),
       },
     );
   }
