@@ -1,65 +1,76 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:flutter/widgets.dart';
 
-class InicioPage extends StatefulWidget {
-  const InicioPage({Key? key, required this.title}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<InicioPage> createState() => _InicioPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _InicioPageState extends State<InicioPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.dark_mode),
+            onPressed: () {
+              Get.changeThemeMode(
+                  Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Boton para ir a login
+            Center(
+              child: Image.asset(
+                'img_login_1.jpg',
+                fit: BoxFit.contain,
+              ),
+            ),
+            // Primer Input
             Center(
               child: Container(
-                width: 150,
-                height: 52,
                 margin: const EdgeInsets.all(20.0),
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(6),
-                    topRight: Radius.circular(6),
-                    bottomLeft: Radius.circular(6),
-                    bottomRight: Radius.circular(6),
+                child: TextField(
+                  //controller y dentro de onchanged es nuevo
+                  //en primer input
+
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Correo',
                   ),
-                  color: const Color.fromRGBO(0, 0, 0, 1),
-                  border: Border.all(
-                    color: const Color.fromARGB(0, 0, 0, 1),
-                    width: 2,
-                  ),
-                ),
-                child: MaterialButton(
-                  child: const Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                        fontFamily: 'Roboto',
-                        fontSize: 13,
-                        height: 1),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
+                  onChanged: (text) {},
                 ),
               ),
             ),
-            // Boton para ir a registro
+            // Segundo Input
             Center(
               child: Container(
-                width: 150,
+                margin: const EdgeInsets.all(20.0),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Contraseña',
+                  ),
+                  onChanged: (text) {},
+                ),
+              ),
+            ),
+            // Boton de Ingreso
+            Center(
+              child: Container(
+                width: 343,
                 height: 52,
                 margin: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
@@ -77,7 +88,7 @@ class _InicioPageState extends State<InicioPage> {
                 ),
                 child: MaterialButton(
                   child: const Text(
-                    "Registro",
+                    "INGRESAR",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Color.fromRGBO(255, 255, 255, 1),
@@ -86,7 +97,7 @@ class _InicioPageState extends State<InicioPage> {
                         height: 1),
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/register');
+                    Navigator.pushNamed(context, '/content');
                   },
                 ),
               ),

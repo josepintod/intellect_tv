@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key, required this.title}) : super(key: key);
@@ -8,7 +7,7 @@ class RegisterPage extends StatefulWidget {
   final String title;
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
@@ -18,6 +17,15 @@ class _RegisterPageState extends State<RegisterPage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.dark_mode),
+            onPressed: () {
+              Get.changeThemeMode(
+                  Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
@@ -65,15 +73,15 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 52,
                 margin: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(6),
                     topRight: Radius.circular(6),
                     bottomLeft: Radius.circular(6),
                     bottomRight: Radius.circular(6),
                   ),
-                  color: Color.fromRGBO(0, 0, 0, 1),
+                  color: const Color.fromRGBO(0, 0, 0, 1),
                   border: Border.all(
-                    color: Color.fromARGB(0, 0, 0, 1),
+                    color: const Color.fromARGB(0, 0, 0, 1),
                     width: 2,
                   ),
                 ),
@@ -88,7 +96,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 1),
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/login');
                   },
                 ),
               ),
