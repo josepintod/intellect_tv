@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "243009537188",
+    "project_id": "intellecttv-d3412",
+    "storage_bucket": "intellecttv-d3412.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243009537188:android:24f42d99e7accca3c69231",
+        "android_client_info": {
+          "package_name": "com.example.intellect_tv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243009537188-8be2opg7uhfncr1mhtv0rifm8hi3nibl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intellect_tv",
+            "certificate_hash": "abeeb53306af71318de9d7484417e1adbc48baca"
+          }
+        },
+        {
+          "client_id": "243009537188-17aa6fb9un9koa12lmjlevdven1hko81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9VAtCDMipQxhsWEk-7J81aUXOR-6giDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243009537188-17aa6fb9un9koa12lmjlevdven1hko81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

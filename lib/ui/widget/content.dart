@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intellect_tv/controller/authentication_controller.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key, required this.title}) : super(key: key);
@@ -6,12 +8,13 @@ class ContentPage extends StatefulWidget {
   final String title;
 
   @override
-  State<ContentPage> createState() => _ContentPageState();
+  _ContentPageState createState() => _ContentPageState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _ContentPageState extends State<ContentPage> {
   int _selectedIndex = 0;
+  AuthenticationController authenticationController = Get.find();
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -21,6 +24,10 @@ class _ContentPageState extends State<ContentPage> {
     ),
     Text(
       'Contenido',
+      style: optionStyle,
+    ),
+    Text(
+      'Chat',
       style: optionStyle,
     ),
     Text(
@@ -44,6 +51,16 @@ class _ContentPageState extends State<ContentPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Contenidos'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.dark_mode),
+            onPressed: () {
+              Get.changeThemeMode(
+                  Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+            },
+          ),
+          IconButton(icon: const Icon(Icons.logout), onPressed: () {}),
+        ],
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -59,6 +76,11 @@ class _ContentPageState extends State<ContentPage> {
             icon: Icon(Icons.dashboard),
             label: 'Contenido',
             backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+            backgroundColor: Colors.pink,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
